@@ -68,21 +68,20 @@ func (cmd *ExploreServiceCommand) Explore(event *l9format.L9Event) {
 	ctx, cancel := context.WithTimeout(context.Background(), cmd.ExploreTimeout)
 	defer cancel()
 	defer cmd.ThreadManager.Done()
-	serviceSummary := event.Summary
 	for _, loadedPlugin := range cmd.OpenPlugins {
 		if event.MatchServicePlugin(loadedPlugin) {
-			if leak, hasLeak := loadedPlugin.Run(ctx, event); hasLeak {
+			leak, hasLeak := loadedPlugin.Run(ctx, event)
+			if hasLeak {
 				event.Leak = leak
 				event.EventType = "leak"
+			}
+			if len(leak.Data) > 0 {
 				event.Summary += "\n" + leak.Data
 				event.AddSource(loadedPlugin.GetName())
-				cmd.JsonEncoder.Encode(event)
 			}
 		}
 	}
-	if !cmd.OnlyLeak {
-		event.Summary = serviceSummary
-		event.EventType = "service"
+	if event.EventType == "leak" || (event.EventType == "service" && !cmd.OnlyLeak) {
 		cmd.JsonEncoder.Encode(event)
 	}
 }
