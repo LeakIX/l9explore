@@ -1,4 +1,4 @@
-# ES Toolkit
+# l9explore
 
 [![GitHub Release](https://img.shields.io/github/v/release/LeakIX/l9explore)](https://github.com/LeakIX/l9explore/releases)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/leak_ix.svg?logo=twitter)](https://twitter.com/leak_ix)
