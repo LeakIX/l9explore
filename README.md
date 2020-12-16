@@ -106,3 +106,8 @@ will :
 - Run l9explore and use each plugin against its protocol to output leak events.
   - And save that output to leaks.json
 - Use [l9filter](https://github.com/LeakIX/l9filter) to translate l9format in a comprehensible output
+
+
+## Creating plugins
+
+Checkout the [l9plugin documentation](https://github.com/LeakIX/l9format/blob/master/l9plugin.md) on how to create your plugins.
