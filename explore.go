@@ -22,9 +22,13 @@ type ExploreServiceCommand struct {
 	OnlyLeak       bool                              `help:"Discards services events" short:"l"`
 	OpenPlugins    []l9format.ServicePluginInterface `kong:"-"`
 	ExplorePlugins []l9format.ServicePluginInterface `kong:"-"`
+	ExfiltratePlugins []l9format.ServicePluginInterface `kong:"-"`
 	ThreadManager  *goccm.ConcurrencyManager         `kong:"-"`
 	JsonEncoder    *json.Encoder                     `kong:"-"`
 	ExploreTimeout time.Duration                     `short:"x" default:"3s"`
+	DisableExploreStage   bool						 `short:"e"`
+	ExfiltrateStage bool							 `short:"x"`
+	Option  		map[string]string				 `short:"o"`
 	Debug          bool
 }
 
@@ -58,22 +62,34 @@ func (cmd *ExploreServiceCommand) Run() error {
 		}
 		cmd.ThreadManager.Wait()
 		event.AddSource("l9explore")
-		go cmd.Explore(event)
+		go func() {
+			defer cmd.ThreadManager.Done()
+			// Run open stage, gather credentials, service info
+			cmd.RunPlugin(event, cmd.OpenPlugins)
+			if event.Leak.Stage == "open" && !cmd.DisableExploreStage {
+				// Run explore stage, reuse credentials to get more informations
+				cmd.RunPlugin(event, cmd.ExplorePlugins)
+			}
+			if (event.Leak.Stage == "explore" || event.Leak.Stage == "open") && cmd.ExfiltrateStage {
+				// Run exfiltrate stage, dump parts or all data to filesystem
+				cmd.RunPlugin(event, cmd.ExfiltratePlugins)
+			}
+		}()
 	}
 	return nil
 }
 
-func (cmd *ExploreServiceCommand) Explore(event *l9format.L9Event) {
+func (cmd *ExploreServiceCommand) RunPlugin(event *l9format.L9Event, plugins []l9format.ServicePluginInterface) {
 	// send to open plugins
 	ctx, cancel := context.WithTimeout(context.Background(), cmd.ExploreTimeout)
 	defer cancel()
-	defer cmd.ThreadManager.Done()
-	for _, loadedPlugin := range cmd.OpenPlugins {
+	for _, loadedPlugin := range plugins {
 		if event.MatchServicePlugin(loadedPlugin) {
-			leak, hasLeak := loadedPlugin.Run(ctx, event)
+			leak, hasLeak := loadedPlugin.Run(ctx, event, cmd.Option)
 			if hasLeak {
 				event.Leak = leak
 				event.EventType = "leak"
+				event.Leak.Stage = loadedPlugin.GetStage()
 			}
 			if len(leak.Data) > 0 {
 				event.Summary += "\n" + leak.Data
@@ -99,8 +115,12 @@ func (cmd *ExploreServiceCommand) LoadPlugins() error {
 		}
 		if pluginFactory().GetStage() == "open" {
 			cmd.OpenPlugins = append(cmd.OpenPlugins, pluginFactory())
-		} else {
+		} else if pluginFactory().GetStage() == "explore" {
 			cmd.ExplorePlugins = append(cmd.ExplorePlugins, pluginFactory())
+		} else if pluginFactory().GetStage() == "exfiltrate" {
+			cmd.ExplorePlugins = append(cmd.ExplorePlugins, pluginFactory())
+		} else {
+			panic("l9explore only supports open, explore and exfiltrate stage")
 		}
 		majorVersion, minorVersion, patchVersion := pluginFactory().GetVersion()
 		log.Printf("Plugin %s %d.%d.%d loaded for protocols %s. Stage: %s",

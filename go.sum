@@ -22,6 +22,12 @@ github.com/LeakIX/l9format v0.0.0-20201214210401-15e0f43e4b97 h1:UB/vlM/z/wTLLTQ
 github.com/LeakIX/l9format v0.0.0-20201214210401-15e0f43e4b97/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
 github.com/LeakIX/l9format v0.6.0 h1:VcjKDz5fyTmMGl/Vsdm1QE/72EZAj0wDjXTom93N+IE=
 github.com/LeakIX/l9format v0.6.0/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
+github.com/LeakIX/l9format v0.6.1-0.20201218164246-ccadea61e953 h1:b5thGDGmNxCClgPMb34d0M9qQE10xAUI0rA59then5o=
+github.com/LeakIX/l9format v0.6.1-0.20201218164246-ccadea61e953/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
+github.com/LeakIX/l9format v0.6.1-0.20201218173407-26e34c2e4de0 h1:/VTfGp4K/N7mXGDOrlAJd6RsgKwykFVyw8lruMOMFRM=
+github.com/LeakIX/l9format v0.6.1-0.20201218173407-26e34c2e4de0/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
+github.com/LeakIX/l9format v0.7.0 h1:52MFPzYOH2uZRRdx0mo3VtGTE6VysvKS0UCOPNajRHA=
+github.com/LeakIX/l9format v0.7.0/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/alecthomas/kong v0.2.12-0.20201112003237-5a9b3ae0120c h1:xl3vsr+ZAOkAbz3M0AzIepoYYulJ7gKBAJVoW68RaoM=

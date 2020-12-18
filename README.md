@@ -32,6 +32,9 @@ Displays help for the list command.
 |--only-leak      | Only display leaks and discard service events |
 |--explore-timeout | Timeout for each plugin |
 |--debug           | Displays developer information 
+|--disable-explore-stage|Disable explore stage plugins ( schema or file list/content)|
+|--exfiltrate-stage|Enable exfiltrate stage plugins ( dumps data to disk )|
+|--option| Use `-o 'redis_password=test;...'` to pass options to plugins, check each plugin's documentation for details| 
 
 ## Installation Instructions
 
