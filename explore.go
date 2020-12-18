@@ -17,19 +17,19 @@ import (
 )
 
 type ExploreServiceCommand struct {
-	PluginDir      string                            `type:"existingdir" short:"s" default:"~/.l9/plugins/service"`
-	MaxThreads     int                               `help:"Max threads" short:"t" default:"10"`
-	OnlyLeak       bool                              `help:"Discards services events" short:"l"`
-	OpenPlugins    []l9format.ServicePluginInterface `kong:"-"`
-	ExplorePlugins []l9format.ServicePluginInterface `kong:"-"`
-	ExfiltratePlugins []l9format.ServicePluginInterface `kong:"-"`
-	ThreadManager  *goccm.ConcurrencyManager         `kong:"-"`
-	JsonEncoder    *json.Encoder                     `kong:"-"`
-	ExploreTimeout time.Duration                     `short:"x" default:"3s"`
-	DisableExploreStage   bool						 `short:"e"`
-	ExfiltrateStage bool							 `short:"x"`
-	Option  		map[string]string				 `short:"o"`
-	Debug          bool
+	PluginDir           string                            `type:"existingdir" short:"s" default:"~/.l9/plugins/service"`
+	MaxThreads          int                               `help:"Max threads" short:"t" default:"10"`
+	OnlyLeak            bool                              `help:"Discards services events" short:"l"`
+	OpenPlugins         []l9format.ServicePluginInterface `kong:"-"`
+	ExplorePlugins      []l9format.ServicePluginInterface `kong:"-"`
+	ExfiltratePlugins   []l9format.ServicePluginInterface `kong:"-"`
+	ThreadManager       *goccm.ConcurrencyManager         `kong:"-"`
+	JsonEncoder         *json.Encoder                     `kong:"-"`
+	ExploreTimeout      time.Duration                     `short:"x" default:"3s"`
+	DisableExploreStage bool                              `short:"e"`
+	ExfiltrateStage     bool                              `short:"x"`
+	Option              map[string]string                 `short:"o"`
+	Debug               bool
 }
 
 func (cmd *ExploreServiceCommand) Run() error {
