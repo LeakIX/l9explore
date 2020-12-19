@@ -81,23 +81,21 @@ func (cmd *ExploreServiceCommand) Run() error {
 
 func (cmd *ExploreServiceCommand) RunPlugin(event *l9format.L9Event, plugins []l9format.ServicePluginInterface) {
 	// send to open plugins
-	ctx, cancel := context.WithTimeout(context.Background(), cmd.ExploreTimeout)
-	defer cancel()
 	for _, loadedPlugin := range plugins {
 		if event.MatchServicePlugin(loadedPlugin) {
+			ctx, contextCancelFunc := context.WithTimeout(context.Background(), cmd.ExploreTimeout)
 			leak, hasLeak := loadedPlugin.Run(ctx, event, cmd.Option)
+			contextCancelFunc()
 			if hasLeak {
 				event.Leak = leak
 				event.EventType = "leak"
 				event.Leak.Stage = loadedPlugin.GetStage()
-			}
-			if len(leak.Data) > 0 {
-				event.Summary += "\n" + leak.Data
 				event.AddSource(loadedPlugin.GetName())
+				cmd.JsonEncoder.Encode(event)
 			}
 		}
 	}
-	if event.EventType == "leak" || (event.EventType == "service" && !cmd.OnlyLeak) {
+	if event.EventType == "service" && !cmd.OnlyLeak {
 		cmd.JsonEncoder.Encode(event)
 	}
 }
