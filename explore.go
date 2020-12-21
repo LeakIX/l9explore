@@ -60,10 +60,11 @@ func (cmd *ExploreServiceCommand) Run() error {
 		if err != nil {
 			return err
 		}
-		cmd.ThreadManager.Wait()
 		event.AddSource("l9explore")
+		cmd.ThreadManager.Wait()
 		go func() {
 			defer cmd.ThreadManager.Done()
+			event.Time = time.Now()
 			// Run open stage, gather credentials, service info
 			cmd.RunPlugin(event, cmd.OpenPlugins)
 			if event.Leak.Stage == "open" && !cmd.DisableExploreStage {

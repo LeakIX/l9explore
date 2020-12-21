@@ -1,5 +1,5 @@
-github.com/LeakIX/l9format v0.7.0 h1:52MFPzYOH2uZRRdx0mo3VtGTE6VysvKS0UCOPNajRHA=
-github.com/LeakIX/l9format v0.7.0/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
+github.com/LeakIX/l9format v0.7.1 h1:IQ6EzkXtlgH7YDMD7bb3kdE666zjzjUHb98mbTf5X1s=
+github.com/LeakIX/l9format v0.7.1/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/alecthomas/kong v0.2.12-0.20201112003237-5a9b3ae0120c h1:xl3vsr+ZAOkAbz3M0AzIepoYYulJ7gKBAJVoW68RaoM=
