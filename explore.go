@@ -36,7 +36,7 @@ func (cmd *ExploreServiceCommand) Run() error {
 	if !cmd.Debug {
 		log.SetOutput(ioutil.Discard)
 	}
-	stdinReader := bufio.NewReaderSize(os.Stdin, 256*1024)
+	stdinReader := bufio.NewReaderSize(os.Stdin, 1024*1024)
 	cmd.JsonEncoder = json.NewEncoder(os.Stdout)
 	err := cmd.LoadPlugins()
 	if err != nil {
