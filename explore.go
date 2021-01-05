@@ -1,7 +1,6 @@
 package l9explore
 
 import (
-	"bufio"
 	"context"
 	"encoding/json"
 	"errors"
@@ -25,6 +24,7 @@ type ExploreServiceCommand struct {
 	ExfiltratePlugins   []l9format.ServicePluginInterface `kong:"-"`
 	ThreadManager       *goccm.ConcurrencyManager         `kong:"-"`
 	JsonEncoder         *json.Encoder                     `kong:"-"`
+	JsonDecoder         *json.Decoder                     `kong:"-"`
 	ExploreTimeout      time.Duration                     `short:"x" default:"3s"`
 	DisableExploreStage bool                              `short:"e"`
 	ExfiltrateStage     bool                              `short:"x"`
@@ -36,7 +36,7 @@ func (cmd *ExploreServiceCommand) Run() error {
 	if !cmd.Debug {
 		log.SetOutput(ioutil.Discard)
 	}
-	stdinReader := bufio.NewReaderSize(os.Stdin, 1024*1024)
+	cmd.JsonDecoder = json.NewDecoder(os.Stdin)
 	cmd.JsonEncoder = json.NewEncoder(os.Stdout)
 	err := cmd.LoadPlugins()
 	if err != nil {
@@ -45,20 +45,13 @@ func (cmd *ExploreServiceCommand) Run() error {
 	cmd.ThreadManager = goccm.New(cmd.MaxThreads)
 	defer cmd.ThreadManager.WaitAllDone()
 	for {
-		bytes, isPrefix, err := stdinReader.ReadLine()
+		event := l9format.L9Event{}
+		err = cmd.JsonDecoder.Decode(&event)
 		if err != nil {
 			if err.Error() == "EOF" {
 				break
 			}
 			log.Fatal(err)
-		}
-		if isPrefix == true {
-			log.Fatal("Event is too big")
-		}
-		event := &l9format.L9Event{}
-		err = json.Unmarshal(bytes, event)
-		if err != nil {
-			return err
 		}
 		event.AddSource("l9explore")
 		cmd.ThreadManager.Wait()
@@ -66,14 +59,14 @@ func (cmd *ExploreServiceCommand) Run() error {
 			defer cmd.ThreadManager.Done()
 			event.Time = time.Now()
 			// Run open stage, gather credentials, service info
-			cmd.RunPlugin(event, cmd.OpenPlugins)
+			cmd.RunPlugin(&event, cmd.OpenPlugins)
 			if event.Leak.Stage == "open" && !cmd.DisableExploreStage {
 				// Run explore stage, reuse credentials to get more informations
-				cmd.RunPlugin(event, cmd.ExplorePlugins)
+				cmd.RunPlugin(&event, cmd.ExplorePlugins)
 			}
 			if (event.Leak.Stage == "explore" || event.Leak.Stage == "open") && cmd.ExfiltrateStage {
 				// Run exfiltrate stage, dump parts or all data to filesystem
-				cmd.RunPlugin(event, cmd.ExfiltratePlugins)
+				cmd.RunPlugin(&event, cmd.ExfiltratePlugins)
 			}
 		}()
 	}
