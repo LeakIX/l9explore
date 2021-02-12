@@ -48,7 +48,7 @@ You should also start by downloading our [stock plugins](https://github.com/Leak
 ▶ chmod +x l9explore-linux-64
 ▶ mv l9explore-linux-64 /usr/local/bin/l9explore
 ▶ mkdir ~/.l9/plugins/service
-▶ curl -L https://github.com/LeakIX/l9plugins/releases/download/v0.9.0/l9plugins-amd64.tar.gz|tar -xzvC ~/.l9/plugins
+▶ curl -L https://github.com/LeakIX/l9plugins/releases/download/v0.9.1/l9plugins-amd64.tar.gz|tar -xzvC ~/.l9/plugins
 ```
 
 ### From Source
