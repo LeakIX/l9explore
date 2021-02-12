@@ -3,7 +3,7 @@ module github.com/LeakIX/l9explore
 go 1.11
 
 require (
-	github.com/LeakIX/l9format v0.7.2-0.20210130035237-f0f44267d885
+	github.com/LeakIX/l9format v0.8.0
 	github.com/Machiel/slugify v1.0.1 // indirect
 	github.com/PuerkitoBio/goquery v1.6.1
 	github.com/alecthomas/kong v0.2.12-0.20201112003237-5a9b3ae0120c
