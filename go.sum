@@ -14,6 +14,8 @@ github.com/LeakIX/l9format v0.7.2-0.20210130035237-f0f44267d885 h1:QUP9sQxxPTu7t
 github.com/LeakIX/l9format v0.7.2-0.20210130035237-f0f44267d885/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
 github.com/LeakIX/l9format v0.8.0 h1:l/w3Tout9T8+gK0IMmXnXiSKl7iOKRHq9T8OktUevgY=
 github.com/LeakIX/l9format v0.8.0/go.mod h1:g/Lf4+9A69MaI9F6bJS6UcEbvSbv1NS5rLx/vLpHnYw=
+github.com/LeakIX/l9format v0.9.0 h1:qw3XiLwa6qCK4/hr4iJdCCfA2tcudaTypgImsO6fuQw=
+github.com/LeakIX/l9format v0.9.0/go.mod h1:6x8VufxxIuUV6B9xeJAYdNI/bLHZFBphbryKEHvomxM=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/PuerkitoBio/goquery v1.6.1 h1:FgjbQZKl5HTmcn4sKBgvx8vv63nhyhIpv7lJpFGCWpk=
@@ -56,11 +58,15 @@ golang.org/x/net v0.0.0-20201209123823-ac852fbbde11 h1:lwlPPsmjDKK0J6eG6xDWd5XPe
 golang.org/x/net v0.0.0-20201209123823-ac852fbbde11/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
 golang.org/x/net v0.0.0-20210119194325-5f4716e94777 h1:003p0dJM77cxMSyCPFphvZf/Y5/NXf5fzg6ufd1/Oew=
 golang.org/x/net v0.0.0-20210119194325-5f4716e94777/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
+golang.org/x/net v0.0.0-20210423184538-5f58ad60dda6 h1:0PC75Fz/kyMGhL0e1QnypqK2kQMqKt9csD1GnMJR+Zk=
+golang.org/x/net v0.0.0-20210423184538-5f58ad60dda6/go.mod h1:OJAsFXCWl8Ukc7SiCT/9KSuxbyM7479/AVlXFRxuMCk=
 golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+golang.org/x/sys v0.0.0-20210423082822-04245dca01da/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
+golang.org/x/text v0.3.6/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
 golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 h1:qIbj1fsPNlZgppZ+VLlY7N33q108Sa+fhmuc+sWQYwY=
