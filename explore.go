@@ -64,9 +64,12 @@ func (cmd *ExploreServiceCommand) Run() error {
 		}
 		event.AddSource("l9explore")
 		cmd.ThreadManager.Wait()
-		go func() {
+		go func(event l9format.L9Event) {
 			defer cmd.ThreadManager.Done()
 			event.Time = time.Now()
+			if !cmd.OnlyLeak {
+				defer cmd.JsonEncoder.Encode(&event)
+			}
 			// Run open stage, gather credentials, service info
 			cmd.RunPlugin(&event, cmd.OpenPlugins)
 			if event.Leak.Stage == "open" && !cmd.DisableExploreStage {
@@ -80,7 +83,7 @@ func (cmd *ExploreServiceCommand) Run() error {
 			if event.HasTransport("http") {
 				cmd.RunWebPlugin(&event, cmd.HttpPlugins)
 			}
-		}()
+		}(event)
 	}
 	return nil
 }
@@ -89,24 +92,27 @@ func (cmd *ExploreServiceCommand) RunPlugin(event *l9format.L9Event, plugins []l
 	// send to open plugins
 	for _, loadedPlugin := range plugins {
 		if event.MatchServicePlugin(loadedPlugin) {
+			leakEvent := *event
+			leakEvent.Summary = ""
 			ctx, contextCancelFunc := context.WithTimeout(context.Background(), cmd.ExploreTimeout)
-			leak, hasLeak := loadedPlugin.Run(ctx, event, cmd.Option)
+			hasLeak := loadedPlugin.Run(ctx, &leakEvent, cmd.Option)
 			contextCancelFunc()
 			if hasLeak {
-				if event.EventType == "service" && !cmd.OnlyLeak {
-					cmd.JsonEncoder.Encode(event)
-				}
-				event.Leak = leak
-				event.EventType = "leak"
-				event.Summary = leak.Data
-				event.Leak.Stage = loadedPlugin.GetStage()
-				event.AddSource(loadedPlugin.GetName())
-				cmd.JsonEncoder.Encode(event)
+				leakEvent.EventType = "leak"
+				leakEvent.Leak.Stage, event.Leak.Stage = loadedPlugin.GetStage(), loadedPlugin.GetStage()
+				leakEvent.AddSource(loadedPlugin.GetName())
+				cmd.JsonEncoder.Encode(leakEvent)
+			}
+			if len(event.Service.Software.Name) < len(leakEvent.Service.Software.Name) {
+				event.Service.Software = leakEvent.Service.Software
+			}
+			if len(event.SSH.Fingerprint) < len(leakEvent.SSH.Fingerprint) {
+				event.SSH = leakEvent.SSH
+			}
+			if len(event.Service.Credentials.Username) < len(leakEvent.Service.Credentials.Username) {
+				event.Service.Software = leakEvent.Service.Software
 			}
 		}
-	}
-	if event.EventType == "service" && !cmd.OnlyLeak {
-		cmd.JsonEncoder.Encode(event)
 	}
 }
 
@@ -150,7 +156,7 @@ func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins 
 		if err != nil {
 			log.Fatal("wtf ?")
 		}
-		req.Header.Set("User-Agent", "l9explore/v0.8.0")
+		req.Header.Set("User-Agent", "l9explore/1.0.0")
 		for headerName, headerValue := range request.Headers {
 			req.Header.Set(headerName, headerValue)
 		}
@@ -163,14 +169,20 @@ func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins 
 		response.Document, _ = goquery.NewDocumentFromReader(bytes.NewReader(response.Body))
 		response.Response.Body.Close()
 		for _, loadedPlugin := range plugins {
-			leak, hasLeak := loadedPlugin.Verify(request, response, event, cmd.Option)
+			leakEvent := *event
+			leakEvent.Summary = ""
+			hasLeak := loadedPlugin.Verify(request, response, &leakEvent, cmd.Option)
 			if hasLeak {
-				event.Leak = leak
-				event.Summary = leak.Data
-				event.EventType = "leak"
-				event.Leak.Stage = loadedPlugin.GetStage()
-				event.AddSource(loadedPlugin.GetName())
-				cmd.JsonEncoder.Encode(event)
+				leakEvent.EventType = "leak"
+				leakEvent.Leak.Stage, event.Leak.Stage = loadedPlugin.GetStage(), loadedPlugin.GetStage()
+				leakEvent.AddSource(loadedPlugin.GetName())
+				cmd.JsonEncoder.Encode(leakEvent)
+			}
+			if len(event.Service.Software.Name) < len(leakEvent.Service.Software.Name) {
+				event.Service.Software = leakEvent.Service.Software
+			}
+			if len(event.Service.Credentials.Username) < len(leakEvent.Service.Credentials.Username) {
+				event.Service.Software = leakEvent.Service.Software
 			}
 		}
 	}
@@ -184,7 +196,6 @@ func (cmd *ExploreServiceCommand) LoadPlugins() error {
 			return err
 		}
 		symbol, _ := p.Lookup("New")
-
 		if pluginFactory, ok := symbol.(func() l9format.ServicePluginInterface); ok {
 			if pluginFactory().GetStage() == "open" {
 				cmd.OpenPlugins = append(cmd.OpenPlugins, pluginFactory())
