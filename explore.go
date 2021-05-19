@@ -20,7 +20,6 @@ import (
 )
 
 type ExploreServiceCommand struct {
-	PluginDir           string                            `type:"existingdir" short:"s" default:"~/.l9/plugins/service"`
 	MaxThreads          int                               `help:"Max threads" short:"t" default:"10"`
 	OnlyLeak            bool                              `help:"Discards services events" short:"l"`
 	OpenPlugins         []l9format.ServicePluginInterface `kong:"-"`
