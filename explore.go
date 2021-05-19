@@ -15,8 +15,6 @@ import (
 	"net"
 	"net/http"
 	"os"
-	"path/filepath"
-	"plugin"
 	"strings"
 	"time"
 )
@@ -41,6 +39,7 @@ type ExploreServiceCommand struct {
 }
 
 func (cmd *ExploreServiceCommand) Run() error {
+	LoadL9ExplorePlugins()
 	cmd.HttpRequests = make(map[string]l9format.WebPluginRequest)
 	if !cmd.Debug {
 		log.SetOutput(ioutil.Discard)
@@ -189,41 +188,34 @@ func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins 
 }
 
 func (cmd *ExploreServiceCommand) LoadPlugins() error {
-	pluginsToLoad, _ := filepath.Glob(cmd.PluginDir + "/*.so")
-	for _, pluginToLoad := range pluginsToLoad {
-		p, err := plugin.Open(pluginToLoad)
-		if err != nil {
-			return err
-		}
-		symbol, _ := p.Lookup("New")
-		if pluginFactory, ok := symbol.(func() l9format.ServicePluginInterface); ok {
-			if pluginFactory().GetStage() == "open" {
-				cmd.OpenPlugins = append(cmd.OpenPlugins, pluginFactory())
-			} else if pluginFactory().GetStage() == "explore" {
-				cmd.ExplorePlugins = append(cmd.ExplorePlugins, pluginFactory())
-			} else if pluginFactory().GetStage() == "exfiltrate" {
-				cmd.ExplorePlugins = append(cmd.ExplorePlugins, pluginFactory())
+	for _, tcpPlugin := range TcpPlugins {
+			if tcpPlugin.GetStage() == "open" {
+				cmd.OpenPlugins = append(cmd.OpenPlugins, tcpPlugin)
+			} else if tcpPlugin.GetStage() == "explore" {
+				cmd.ExplorePlugins = append(cmd.ExplorePlugins, tcpPlugin)
+			} else if tcpPlugin.GetStage() == "exfiltrate" {
+				cmd.ExplorePlugins = append(cmd.ExplorePlugins, tcpPlugin)
 			} else {
 				panic("l9explore only supports open, explore and exfiltrate stage")
 			}
-			majorVersion, minorVersion, patchVersion := pluginFactory().GetVersion()
+			majorVersion, minorVersion, patchVersion := tcpPlugin.GetVersion()
 			log.Printf("Plugin %s %d.%d.%d loaded for protocols %s. Stage: %s",
-				pluginFactory().GetName(), majorVersion, minorVersion, patchVersion, strings.Join(pluginFactory().GetProtocols(), ", "), pluginFactory().GetStage())
+				tcpPlugin.GetName(), majorVersion, minorVersion, patchVersion, strings.Join(tcpPlugin.GetProtocols(), ", "), tcpPlugin.GetStage())
 			continue
-		}
-		if pluginFactory, ok := symbol.(func() l9format.WebPluginInterface); ok {
-			cmd.HttpPlugins = append(cmd.HttpPlugins, pluginFactory())
-			majorVersion, minorVersion, patchVersion := pluginFactory().GetVersion()
+		
+		log.Fatal("Couldn't load tcpPlugin")
+	}
+	for _, webPlugin := range WebPlugins {
+			cmd.HttpPlugins = append(cmd.HttpPlugins, webPlugin)
+			majorVersion, minorVersion, patchVersion := webPlugin.GetVersion()
 			// Plugins can register requests, this ensure they only run once
-			for _, request := range pluginFactory().GetRequests() {
+			for _, request := range webPlugin.GetRequests() {
 				log.Printf("Loaded request ID %x", request.GetHash())
 				cmd.HttpRequests[request.GetHash()] = request
 			}
 			log.Printf("Web Plugin %s %d.%d.%d loaded. Stage: %s",
-				pluginFactory().GetName(), majorVersion, minorVersion, patchVersion, pluginFactory().GetStage())
+				webPlugin.GetName(), majorVersion, minorVersion, patchVersion, webPlugin.GetStage())
 			continue
-		}
-		log.Fatal("Couldn't load plugin")
 	}
 	log.Printf("loaded %d service plugins and %d web plugins (%d requests)", len(cmd.OpenPlugins) + len(cmd.ExplorePlugins) + len(cmd.ExfiltratePlugins), len(cmd.HttpPlugins), len(cmd.HttpRequests))
 	return nil
