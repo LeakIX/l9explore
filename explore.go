@@ -65,9 +65,6 @@ func (cmd *ExploreServiceCommand) Run() error {
 		go func(event l9format.L9Event) {
 			defer cmd.ThreadManager.Done()
 			event.Time = time.Now()
-			if !cmd.OnlyLeak {
-				defer cmd.JsonEncoder.Encode(&event)
-			}
 			// Run open stage, gather credentials, service info
 			cmd.RunPlugin(&event, cmd.OpenPlugins)
 			if event.Leak.Stage == "open" && !cmd.DisableExploreStage {
@@ -80,6 +77,10 @@ func (cmd *ExploreServiceCommand) Run() error {
 			}
 			if event.HasTransport("http") {
 				cmd.RunWebPlugin(&event, cmd.HttpPlugins)
+			}
+			event.UpdateFingerprint()
+			if !cmd.OnlyLeak {
+				cmd.JsonEncoder.Encode(&event)
 			}
 		}(event)
 	}
@@ -99,6 +100,7 @@ func (cmd *ExploreServiceCommand) RunPlugin(event *l9format.L9Event, plugins []l
 				leakEvent.EventType = "leak"
 				leakEvent.Leak.Stage, event.Leak.Stage = loadedPlugin.GetStage(), loadedPlugin.GetStage()
 				leakEvent.AddSource(loadedPlugin.GetName())
+				leakEvent.UpdateFingerprint()
 				cmd.JsonEncoder.Encode(leakEvent)
 			}
 			if len(event.Service.Software.Name) < len(leakEvent.Service.Software.Name) {
@@ -174,6 +176,7 @@ func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins 
 				leakEvent.EventType = "leak"
 				leakEvent.Leak.Stage, event.Leak.Stage = loadedPlugin.GetStage(), loadedPlugin.GetStage()
 				leakEvent.AddSource(loadedPlugin.GetName())
+				leakEvent.UpdateFingerprint()
 				cmd.JsonEncoder.Encode(leakEvent)
 			}
 			if len(event.Service.Software.Name) < len(leakEvent.Service.Software.Name) {
