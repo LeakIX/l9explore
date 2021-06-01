@@ -27,7 +27,6 @@ Displays help for the list command.
 
 |Flag           |Description  |
 |-----------------------|-------------------------------------------------------|
-|--plugin-dir     | Path to l9plugins .so files  |
 |--max-threads    | Maximum number of threads |
 |--only-leak      | Only display leaks and discard service events |
 |--explore-timeout | Timeout for each plugin |
@@ -42,17 +41,14 @@ Displays help for the list command.
 
 The installation is easy. You can download the pre-built binaries for your platform from the [Releases](https://github.com/LeakIX/l9explore/releases/) page.
 
-You should also start by downloading our [stock plugins](https://github.com/LeakIX/l9plugins) from the release page.
+This version has our [stock plugins](https://github.com/LeakIX/l9plugins) embedded.
 
 ```sh
 ▶ chmod +x l9explore-linux-64
 ▶ mv l9explore-linux-64 /usr/local/bin/l9explore
-▶ mkdir ~/.l9/plugins/service
-▶ curl -L https://github.com/LeakIX/l9plugins/releases/download/v0.10.0/l9plugins-amd64.tar.gz|tar -xzvC ~/.l9/plugins
 ```
 
 ### From Source
-
 
 ```sh
 ▶ GO111MODULE=on go get -u -v github.com/LeakIX/l9explore/cmd/l9explore
@@ -114,3 +110,4 @@ will :
 ## Creating plugins
 
 Checkout the [l9plugin documentation](https://github.com/LeakIX/l9format/blob/master/l9plugin.md) on how to create your plugins.
+
