@@ -3,7 +3,7 @@ module github.com/LeakIX/l9explore
 go 1.15
 
 require (
-	github.com/LeakIX/l9format v1.0.0
+	github.com/LeakIX/l9format v1.2.0-alpha.1
 	github.com/LeakIX/l9plugins v1.0.1
 	github.com/Machiel/slugify v1.0.1 // indirect
 	github.com/PuerkitoBio/goquery v1.6.1
@@ -11,6 +11,7 @@ require (
 	github.com/alecthomas/kong v0.2.16
 	github.com/aws/aws-sdk-go v1.38.51 // indirect
 	github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e
+	github.com/gboddin/l9-nuclei-plugin v0.0.1 // indirect
 	github.com/go-redis/redis/v8 v8.9.0 // indirect
 	github.com/klauspost/compress v1.12.3 // indirect
 	github.com/xdg/scram v1.0.3 // indirect

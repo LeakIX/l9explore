@@ -6,6 +6,8 @@ github.com/LeakIX/l9format v1.0.0-beta.1 h1:xTVTmXoM9ljiyifFTmbUUJEsDZC7krporuHJ
 github.com/LeakIX/l9format v1.0.0-beta.1/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.0.0 h1:zHqGvnwvr5iuI55nCSQbmVlPdiEfiNrjn890MMlX2rk=
 github.com/LeakIX/l9format v1.0.0/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
+github.com/LeakIX/l9format v1.2.0-alpha.1 h1:wluoAX8aV2t+Oc6lx553KKlvDkVDmRB2af4uYutgp50=
+github.com/LeakIX/l9format v1.2.0-alpha.1/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9plugins v1.0.0-beta.3 h1:QsW/84oC2iqq2FPbK0POKhmlMqirsphUSbBVfLn41M0=
 github.com/LeakIX/l9plugins v1.0.0-beta.3/go.mod h1:MG5XHt0A3crKCKVpbuPtex4zUZBgvGd0JTn4yNXMw8M=
 github.com/LeakIX/l9plugins v1.0.0 h1:EyJlK6N/qJEfH2uvQiwIDkJamYhnl4mqt+3FboBwbyA=
@@ -56,6 +58,8 @@ github.com/fsnotify/fsnotify v1.4.9 h1:hsms1Qyu0jgnwNXIxa+/V/PDsU6CfLf6CNO8H7IWo
 github.com/fsnotify/fsnotify v1.4.9/go.mod h1:znqG4EE+3YCdAaPaxE2ZRY/06pZUdp0tY4IgpuI1SZQ=
 github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e h1:Cv/T9l4iNyi6keuiTPFIyxMSe4thWq1SAMd7TgHH17o=
 github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e/go.mod h1:ASva8kr1z1Gdw2T2wc+qz6ynTzEQ2knG+Buly4NOG+k=
+github.com/gboddin/l9-nuclei-plugin v0.0.1 h1:fFWRGHyulHxN06jHEQ28olUp+4JA67kqbwR7isMTbOo=
+github.com/gboddin/l9-nuclei-plugin v0.0.1/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
 github.com/go-redis/redis/v8 v8.8.2/go.mod h1:F7resOH5Kdug49Otu24RjHWwgK7u9AmtqWMnCV1iP5Y=
 github.com/go-redis/redis/v8 v8.8.3 h1:BefJyU89cTF25I00D5N9pJdWB1d1RBj8d7MBf71M7uQ=
 github.com/go-redis/redis/v8 v8.8.3/go.mod h1:ik7vb7+gm8Izylxu6kf6wG26/t2VljgCfSQ1DM4O1uU=
@@ -340,6 +344,8 @@ gopkg.in/yaml.v2 v2.2.4/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
 gopkg.in/yaml.v2 v2.2.8/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
 gopkg.in/yaml.v2 v2.3.0 h1:clyUAQHOM3G0M3f5vQj7LuJrETvjVot3Z5el9nffUtU=
 gopkg.in/yaml.v2 v2.3.0/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
+gopkg.in/yaml.v2 v2.4.0 h1:D8xgwECY7CYvx+Y2n4sBz93Jn9JRvxdiyyo8CTfuKaY=
+gopkg.in/yaml.v2 v2.4.0/go.mod h1:RDklbk79AGWmwhnvt/jBztapEOGDOx6ZbXqjP6csGnQ=
 gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
 gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b h1:h8qDotaEPuJATrMmW04NCwg7v22aHH28wwpauUhK9Oo=
 gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
