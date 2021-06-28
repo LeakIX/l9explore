@@ -60,6 +60,8 @@ github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e h1:Cv/T9l4iNyi6keuiT
 github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e/go.mod h1:ASva8kr1z1Gdw2T2wc+qz6ynTzEQ2knG+Buly4NOG+k=
 github.com/gboddin/l9-nuclei-plugin v0.0.1 h1:fFWRGHyulHxN06jHEQ28olUp+4JA67kqbwR7isMTbOo=
 github.com/gboddin/l9-nuclei-plugin v0.0.1/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
+github.com/gboddin/l9-nuclei-plugin v0.0.2 h1:4tvJY/JuWwnU178oVjv0zPdCJYVHu3GakLi/ounACZk=
+github.com/gboddin/l9-nuclei-plugin v0.0.2/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
 github.com/go-redis/redis/v8 v8.8.2/go.mod h1:F7resOH5Kdug49Otu24RjHWwgK7u9AmtqWMnCV1iP5Y=
 github.com/go-redis/redis/v8 v8.8.3 h1:BefJyU89cTF25I00D5N9pJdWB1d1RBj8d7MBf71M7uQ=
 github.com/go-redis/redis/v8 v8.8.3/go.mod h1:ik7vb7+gm8Izylxu6kf6wG26/t2VljgCfSQ1DM4O1uU=
