@@ -3,10 +3,10 @@ module github.com/LeakIX/l9explore
 go 1.15
 
 require (
-	github.com/LeakIX/l9format v1.2.0
+	github.com/LeakIX/l9format v1.2.1
 	github.com/LeakIX/l9plugins v1.2.0
 	github.com/Machiel/slugify v1.0.1 // indirect
-	github.com/PuerkitoBio/goquery v1.6.1
+	github.com/PuerkitoBio/goquery v1.7.0
 	github.com/Shopify/sarama v1.28.0 // indirect
 	github.com/alecthomas/kong v0.2.16
 	github.com/aws/aws-sdk-go v1.38.51 // indirect
@@ -19,6 +19,6 @@ require (
 	gitlab.nobody.run/tbi/core v0.0.0-20201124161030-42e21c6deb8e
 	go.mongodb.org/mongo-driver v1.5.2 // indirect
 	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a // indirect
-	golang.org/x/net v0.0.0-20210525063256-abc453219eb5 // indirect
+	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
 	golang.org/x/sys v0.0.0-20210601080250-7ecdf8ef093b // indirect
 )
