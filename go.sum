@@ -8,12 +8,16 @@ github.com/LeakIX/l9format v1.0.0 h1:zHqGvnwvr5iuI55nCSQbmVlPdiEfiNrjn890MMlX2rk
 github.com/LeakIX/l9format v1.0.0/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.2.0-alpha.1 h1:wluoAX8aV2t+Oc6lx553KKlvDkVDmRB2af4uYutgp50=
 github.com/LeakIX/l9format v1.2.0-alpha.1/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
+github.com/LeakIX/l9format v1.2.0-alpha.3 h1:sAWpN52Jo2qcH5tG4aunpefZ1Sd8bWFxJFuzW++Wk2k=
+github.com/LeakIX/l9format v1.2.0-alpha.3/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9plugins v1.0.0-beta.3 h1:QsW/84oC2iqq2FPbK0POKhmlMqirsphUSbBVfLn41M0=
 github.com/LeakIX/l9plugins v1.0.0-beta.3/go.mod h1:MG5XHt0A3crKCKVpbuPtex4zUZBgvGd0JTn4yNXMw8M=
 github.com/LeakIX/l9plugins v1.0.0 h1:EyJlK6N/qJEfH2uvQiwIDkJamYhnl4mqt+3FboBwbyA=
 github.com/LeakIX/l9plugins v1.0.0/go.mod h1:O67NP54ZwxXuOmdHjJtqRbl7MGZ8PYvE/8R8mKBWVow=
 github.com/LeakIX/l9plugins v1.0.1 h1:IDYLldgM4hwOBVzWeu4dxl9I9U3Bp95qc+JQ9KrFoYk=
 github.com/LeakIX/l9plugins v1.0.1/go.mod h1:O67NP54ZwxXuOmdHjJtqRbl7MGZ8PYvE/8R8mKBWVow=
+github.com/LeakIX/l9plugins v1.1.0-alpha.2 h1:qRYGUnAOt5vmytwYVvjAV/adp300DE/TcSXTUJxOIsA=
+github.com/LeakIX/l9plugins v1.1.0-alpha.2/go.mod h1:kf3qeQ0BycKRXnjGG/2OHCVFnm3og7ONAGLwB+GMqRM=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/PuerkitoBio/goquery v1.6.1 h1:FgjbQZKl5HTmcn4sKBgvx8vv63nhyhIpv7lJpFGCWpk=
