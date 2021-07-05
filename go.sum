@@ -10,6 +10,8 @@ github.com/LeakIX/l9format v1.2.0-alpha.1 h1:wluoAX8aV2t+Oc6lx553KKlvDkVDmRB2af4
 github.com/LeakIX/l9format v1.2.0-alpha.1/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.2.0-alpha.3 h1:sAWpN52Jo2qcH5tG4aunpefZ1Sd8bWFxJFuzW++Wk2k=
 github.com/LeakIX/l9format v1.2.0-alpha.3/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
+github.com/LeakIX/l9format v1.2.0 h1:Ge6gD1BejcuKyIx/gG3cvH7u3kdwTz6n3qauT63sTbg=
+github.com/LeakIX/l9format v1.2.0/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9plugins v1.0.0-beta.3 h1:QsW/84oC2iqq2FPbK0POKhmlMqirsphUSbBVfLn41M0=
 github.com/LeakIX/l9plugins v1.0.0-beta.3/go.mod h1:MG5XHt0A3crKCKVpbuPtex4zUZBgvGd0JTn4yNXMw8M=
 github.com/LeakIX/l9plugins v1.0.0 h1:EyJlK6N/qJEfH2uvQiwIDkJamYhnl4mqt+3FboBwbyA=
@@ -66,6 +68,8 @@ github.com/gboddin/l9-nuclei-plugin v0.0.1 h1:fFWRGHyulHxN06jHEQ28olUp+4JA67kqbw
 github.com/gboddin/l9-nuclei-plugin v0.0.1/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
 github.com/gboddin/l9-nuclei-plugin v0.0.2 h1:4tvJY/JuWwnU178oVjv0zPdCJYVHu3GakLi/ounACZk=
 github.com/gboddin/l9-nuclei-plugin v0.0.2/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
+github.com/gboddin/l9-nuclei-plugin v0.0.3 h1:EUB2+LtQTmpf82Or35vnde+KAHKekEc7zw3WXZkGbTE=
+github.com/gboddin/l9-nuclei-plugin v0.0.3/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
 github.com/go-redis/redis/v8 v8.8.2/go.mod h1:F7resOH5Kdug49Otu24RjHWwgK7u9AmtqWMnCV1iP5Y=
 github.com/go-redis/redis/v8 v8.8.3 h1:BefJyU89cTF25I00D5N9pJdWB1d1RBj8d7MBf71M7uQ=
 github.com/go-redis/redis/v8 v8.8.3/go.mod h1:ik7vb7+gm8Izylxu6kf6wG26/t2VljgCfSQ1DM4O1uU=
