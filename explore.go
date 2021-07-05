@@ -110,7 +110,7 @@ func (cmd *ExploreServiceCommand) RunPlugin(event *l9format.L9Event, plugins []l
 				event.SSH = leakEvent.SSH
 			}
 			if len(event.Service.Credentials.Username) < len(leakEvent.Service.Credentials.Username) {
-				event.Service.Software = leakEvent.Service.Software
+				event.Service.Credentials = leakEvent.Service.Credentials
 			}
 		}
 	}
