@@ -20,6 +20,8 @@ github.com/LeakIX/l9plugins v1.0.1 h1:IDYLldgM4hwOBVzWeu4dxl9I9U3Bp95qc+JQ9KrFoY
 github.com/LeakIX/l9plugins v1.0.1/go.mod h1:O67NP54ZwxXuOmdHjJtqRbl7MGZ8PYvE/8R8mKBWVow=
 github.com/LeakIX/l9plugins v1.1.0-alpha.2 h1:qRYGUnAOt5vmytwYVvjAV/adp300DE/TcSXTUJxOIsA=
 github.com/LeakIX/l9plugins v1.1.0-alpha.2/go.mod h1:kf3qeQ0BycKRXnjGG/2OHCVFnm3og7ONAGLwB+GMqRM=
+github.com/LeakIX/l9plugins v1.2.0 h1:eK2EK8RPi8DzKHpvqp1XBgWsi0+Ka/vl9AzGXlH665g=
+github.com/LeakIX/l9plugins v1.2.0/go.mod h1:kf3qeQ0BycKRXnjGG/2OHCVFnm3og7ONAGLwB+GMqRM=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/PuerkitoBio/goquery v1.6.1 h1:FgjbQZKl5HTmcn4sKBgvx8vv63nhyhIpv7lJpFGCWpk=
