@@ -110,7 +110,7 @@ func (cmd *ExploreServiceCommand) RunPlugin(event *l9format.L9Event, plugins []l
 				event.SSH = leakEvent.SSH
 			}
 			if len(event.Service.Credentials.Username) < len(leakEvent.Service.Credentials.Username) {
-				event.Service.Software = leakEvent.Service.Software
+				event.Service.Credentials = leakEvent.Service.Credentials
 			}
 		}
 	}
@@ -191,21 +191,22 @@ func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins 
 
 func (cmd *ExploreServiceCommand) LoadPlugins() error {
 	for _, tcpPlugin := range TcpPlugins {
-			if tcpPlugin.GetStage() == "open" {
-				cmd.OpenPlugins = append(cmd.OpenPlugins, tcpPlugin)
-			} else if tcpPlugin.GetStage() == "explore" {
-				cmd.ExplorePlugins = append(cmd.ExplorePlugins, tcpPlugin)
-			} else if tcpPlugin.GetStage() == "exfiltrate" {
-				cmd.ExplorePlugins = append(cmd.ExplorePlugins, tcpPlugin)
-			} else {
-				panic("l9explore only supports open, explore and exfiltrate stage")
-			}
-			majorVersion, minorVersion, patchVersion := tcpPlugin.GetVersion()
-			log.Printf("Plugin %s %d.%d.%d loaded for protocols %s. Stage: %s",
-				tcpPlugin.GetName(), majorVersion, minorVersion, patchVersion, strings.Join(tcpPlugin.GetProtocols(), ", "), tcpPlugin.GetStage())
-			continue
-		
-		log.Fatal("Couldn't load tcpPlugin")
+		if tcpPlugin.GetStage() == "open" {
+			cmd.OpenPlugins = append(cmd.OpenPlugins, tcpPlugin)
+		} else if tcpPlugin.GetStage() == "explore" {
+			cmd.ExplorePlugins = append(cmd.ExplorePlugins, tcpPlugin)
+		} else if tcpPlugin.GetStage() == "exfiltrate" {
+			cmd.ExplorePlugins = append(cmd.ExplorePlugins, tcpPlugin)
+		} else {
+			panic("l9explore only supports open, explore and exfiltrate stage")
+		}
+		majorVersion, minorVersion, patchVersion := tcpPlugin.GetVersion()
+		log.Printf("Plugin %s %d.%d.%d loaded for protocols %s. Stage: %s",
+			tcpPlugin.GetName(), majorVersion, minorVersion, patchVersion, strings.Join(tcpPlugin.GetProtocols(), ", "), tcpPlugin.GetStage())
+		err := tcpPlugin.Init()
+		if err != nil {
+			return err
+		}
 	}
 	for _, webPlugin := range WebPlugins {
 			cmd.HttpPlugins = append(cmd.HttpPlugins, webPlugin)
@@ -217,7 +218,6 @@ func (cmd *ExploreServiceCommand) LoadPlugins() error {
 			}
 			log.Printf("Web Plugin %s %d.%d.%d loaded. Stage: %s",
 				webPlugin.GetName(), majorVersion, minorVersion, patchVersion, webPlugin.GetStage())
-			continue
 	}
 	log.Printf("loaded %d service plugins and %d web plugins (%d requests)", len(cmd.OpenPlugins) + len(cmd.ExplorePlugins) + len(cmd.ExfiltratePlugins), len(cmd.HttpPlugins), len(cmd.HttpRequests))
 	return nil
