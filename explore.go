@@ -151,6 +151,11 @@ func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins 
 	}
 
 	for _, request := range cmd.HttpRequests {
+		// If request has tags and our event doesn't match any, continue :
+		if len(request.Tags) > 0 && !request.HasAnyTags(event.Tags) {
+			continue
+		}
+		var err error
 		event.Http.Url = request.Path
 		req, err := http.NewRequest(request.Method, event.Url(), bytes.NewReader(request.Body))
 		if err != nil {
@@ -214,7 +219,12 @@ func (cmd *ExploreServiceCommand) LoadPlugins() error {
 			// Plugins can register requests, this ensure they only run once
 			for _, request := range webPlugin.GetRequests() {
 				log.Printf("Loaded request ID %x", request.GetHash())
-				cmd.HttpRequests[request.GetHash()] = request
+				// If this request already exists, append our tags
+				if pluginRequest, requestExists := cmd.HttpRequests[request.GetHash()] ; requestExists{
+					pluginRequest.AddTags(request.Tags)
+				} else {
+					cmd.HttpRequests[request.GetHash()] = request
+				}
 			}
 			log.Printf("Web Plugin %s %d.%d.%d loaded. Stage: %s",
 				webPlugin.GetName(), majorVersion, minorVersion, patchVersion, webPlugin.GetStage())

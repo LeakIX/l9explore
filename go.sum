@@ -14,6 +14,10 @@ github.com/LeakIX/l9format v1.2.0 h1:Ge6gD1BejcuKyIx/gG3cvH7u3kdwTz6n3qauT63sTbg
 github.com/LeakIX/l9format v1.2.0/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.2.1 h1:1hkOZMCXYRSPo+FIuwdc+HUzihJ7WEjQwRaFAV+ZqWM=
 github.com/LeakIX/l9format v1.2.1/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
+github.com/LeakIX/l9format v1.3.0-beta.1 h1:UjF8VopW03b+FixJvD092yV+g/7cWJP0MvVGV94CegQ=
+github.com/LeakIX/l9format v1.3.0-beta.1/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
+github.com/LeakIX/l9format v1.3.0-beta.2 h1:2zwQryPYFvxju25vjL9TXLdActgVmjpDJ/zgc2Fb5hY=
+github.com/LeakIX/l9format v1.3.0-beta.2/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9plugins v1.0.0-beta.3 h1:QsW/84oC2iqq2FPbK0POKhmlMqirsphUSbBVfLn41M0=
 github.com/LeakIX/l9plugins v1.0.0-beta.3/go.mod h1:MG5XHt0A3crKCKVpbuPtex4zUZBgvGd0JTn4yNXMw8M=
 github.com/LeakIX/l9plugins v1.0.0 h1:EyJlK6N/qJEfH2uvQiwIDkJamYhnl4mqt+3FboBwbyA=
@@ -24,6 +28,10 @@ github.com/LeakIX/l9plugins v1.1.0-alpha.2 h1:qRYGUnAOt5vmytwYVvjAV/adp300DE/TcS
 github.com/LeakIX/l9plugins v1.1.0-alpha.2/go.mod h1:kf3qeQ0BycKRXnjGG/2OHCVFnm3og7ONAGLwB+GMqRM=
 github.com/LeakIX/l9plugins v1.2.0 h1:eK2EK8RPi8DzKHpvqp1XBgWsi0+Ka/vl9AzGXlH665g=
 github.com/LeakIX/l9plugins v1.2.0/go.mod h1:kf3qeQ0BycKRXnjGG/2OHCVFnm3og7ONAGLwB+GMqRM=
+github.com/LeakIX/l9plugins v1.3.0-beta.2 h1:G07vV5j9FGuN0m1vERxpaQShOpU6R3zPC9km1fXyiJc=
+github.com/LeakIX/l9plugins v1.3.0-beta.2/go.mod h1:IwfXOpKEuZgzabUjRSapxed8ra2W9LxPGF5/AM/kvT4=
+github.com/LeakIX/l9plugins v1.3.0-beta.3 h1:N1AXyUbwD+Ks2+WGxjgKN3iCWKMZfL329Qgh0vP44jQ=
+github.com/LeakIX/l9plugins v1.3.0-beta.3/go.mod h1:IwfXOpKEuZgzabUjRSapxed8ra2W9LxPGF5/AM/kvT4=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/PuerkitoBio/goquery v1.6.1 h1:FgjbQZKl5HTmcn4sKBgvx8vv63nhyhIpv7lJpFGCWpk=
@@ -78,6 +86,8 @@ github.com/gboddin/l9-nuclei-plugin v0.0.3 h1:EUB2+LtQTmpf82Or35vnde+KAHKekEc7zw
 github.com/gboddin/l9-nuclei-plugin v0.0.3/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
 github.com/gboddin/l9-nuclei-plugin v0.0.4 h1:INC4NXjVEyobRj7+fk3dCg6p8GQIIFSdhR59mhaxlUE=
 github.com/gboddin/l9-nuclei-plugin v0.0.4/go.mod h1:OCL3pQmdXtDUoHhnodvrkjkE6dlrnZvimsT2avoEkEY=
+github.com/gboddin/l9-nuclei-plugin v0.0.5 h1:6d8iJJZspZC6LyoB9/SU8g/UWhALwlH+SMc5eBTyY7g=
+github.com/gboddin/l9-nuclei-plugin v0.0.5/go.mod h1:iDJdhN0MT2iL/9GeWqfn5RPaeNSVystF1iOKebUSe8g=
 github.com/go-redis/redis/v8 v8.8.2/go.mod h1:F7resOH5Kdug49Otu24RjHWwgK7u9AmtqWMnCV1iP5Y=
 github.com/go-redis/redis/v8 v8.8.3 h1:BefJyU89cTF25I00D5N9pJdWB1d1RBj8d7MBf71M7uQ=
 github.com/go-redis/redis/v8 v8.8.3/go.mod h1:ik7vb7+gm8Izylxu6kf6wG26/t2VljgCfSQ1DM4O1uU=
