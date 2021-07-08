@@ -17,6 +17,5 @@ require (
 	github.com/klauspost/compress v1.13.1 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	gitlab.nobody.run/tbi/core v0.0.0-20201124161030-42e21c6deb8e
-	go.mongodb.org/mongo-driver v1.5.4 // indirect
-	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
+	go.mongodb.org/mongo-driver v1.5.2 // indirect
 )
