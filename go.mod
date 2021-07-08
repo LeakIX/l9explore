@@ -11,7 +11,7 @@ require (
 	github.com/alecthomas/kong v0.2.16
 	github.com/aws/aws-sdk-go v1.39.2 // indirect
 	github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e
-	github.com/gboddin/l9-nuclei-plugin v0.0.5
+	github.com/gboddin/l9-nuclei-plugin v0.1.0
 	github.com/go-redis/redis/v8 v8.11.0 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/klauspost/compress v1.13.1 // indirect

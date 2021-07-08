@@ -3,6 +3,7 @@ github.com/LeakIX/IndexOfBrowser v0.1.0 h1:a4Ag35uwKGEYIkALBsxv5tAziqWfMsUKZhEw4
 github.com/LeakIX/IndexOfBrowser v0.1.0/go.mod h1:VHPdwGFIaDecI0h5T382sXKA0GngEOOxdqqpIA7NQGY=
 github.com/LeakIX/l9format v1.2.0-alpha.3/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.3.0-beta.1/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
+github.com/LeakIX/l9format v1.3.0-beta.2/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.3.0 h1:IrWuvYQ6ayEwf3oTTWG54D3oVfLApQDd0qyKdKK5mw8=
 github.com/LeakIX/l9format v1.3.0/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9plugins v1.3.0 h1:ygW65v6LGT+CXeTqLxesYZw8nLeLU3BwR3sO0QxM41Q=
@@ -53,6 +54,10 @@ github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e h1:Cv/T9l4iNyi6keuiT
 github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e/go.mod h1:ASva8kr1z1Gdw2T2wc+qz6ynTzEQ2knG+Buly4NOG+k=
 github.com/gboddin/l9-nuclei-plugin v0.0.5 h1:6d8iJJZspZC6LyoB9/SU8g/UWhALwlH+SMc5eBTyY7g=
 github.com/gboddin/l9-nuclei-plugin v0.0.5/go.mod h1:iDJdhN0MT2iL/9GeWqfn5RPaeNSVystF1iOKebUSe8g=
+github.com/gboddin/l9-nuclei-plugin v0.0.6 h1:IzJPqrNAIEMkhD4WC3ec9EGBKmSzXIHS0wxAG3neY5Q=
+github.com/gboddin/l9-nuclei-plugin v0.0.6/go.mod h1:iDJdhN0MT2iL/9GeWqfn5RPaeNSVystF1iOKebUSe8g=
+github.com/gboddin/l9-nuclei-plugin v0.1.0 h1:sFPgIa4G0JuwgGcJ+hj1R3FQB30USuwy3cXWWEtdbac=
+github.com/gboddin/l9-nuclei-plugin v0.1.0/go.mod h1:4BPqlPhm4m2fX116a2U6LSGZ95ZFVBPR4gDNfQPszF8=
 github.com/go-redis/redis/v8 v8.8.2/go.mod h1:F7resOH5Kdug49Otu24RjHWwgK7u9AmtqWMnCV1iP5Y=
 github.com/go-redis/redis/v8 v8.11.0 h1:O1Td0mQ8UFChQ3N9zFQqo6kTU2cJ+/it88gDB+zg0wo=
 github.com/go-redis/redis/v8 v8.11.0/go.mod h1:DLomh7y2e3ggQXQLd1YgmvIfecPJoFl7WU5SOQ/r06M=
