@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/LeakIX/l9format v1.3.0
-	github.com/LeakIX/l9plugins v1.3.0
+	github.com/LeakIX/l9plugins v1.3.1
 	github.com/Machiel/slugify v1.0.1 // indirect
 	github.com/PuerkitoBio/goquery v1.7.0
 	github.com/Shopify/sarama v1.29.1 // indirect
@@ -17,5 +17,4 @@ require (
 	github.com/klauspost/compress v1.13.1 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	gitlab.nobody.run/tbi/core v0.0.0-20201124161030-42e21c6deb8e
-	go.mongodb.org/mongo-driver v1.5.2 // indirect
 )
