@@ -161,7 +161,7 @@ func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins 
 		if err != nil {
 			log.Fatal("wtf ?")
 		}
-		req.Header.Set("User-Agent", "l9explore/1.0.0")
+		req.Header.Set("User-Agent", "l9explore/1.2.2")
 		for headerName, headerValue := range request.Headers {
 			req.Header.Set(headerName, headerValue)
 		}
