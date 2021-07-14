@@ -4,8 +4,8 @@ github.com/LeakIX/IndexOfBrowser v0.1.0/go.mod h1:VHPdwGFIaDecI0h5T382sXKA0GngEO
 github.com/LeakIX/l9format v1.3.0-beta.2/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.3.0 h1:IrWuvYQ6ayEwf3oTTWG54D3oVfLApQDd0qyKdKK5mw8=
 github.com/LeakIX/l9format v1.3.0/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
-github.com/LeakIX/l9plugins v1.3.0-rc.2.0.20210713134542-842d3d727795 h1:CoILv6ttHIhTn5/dAN09uL2MmHrIywsvGiS+9fXOstU=
-github.com/LeakIX/l9plugins v1.3.0-rc.2.0.20210713134542-842d3d727795/go.mod h1:aMDvS4DodiS0dTg1npVGismbf9er5NfdEMyMOha8Vvk=
+github.com/LeakIX/l9plugins v1.3.2 h1:2zcHDaNCZC25qTsRHhUZ9BYMVK3Ay8ANLRinAJQOfk4=
+github.com/LeakIX/l9plugins v1.3.2/go.mod h1:aMDvS4DodiS0dTg1npVGismbf9er5NfdEMyMOha8Vvk=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/PuerkitoBio/goquery v1.6.1/go.mod h1:GsLWisAFVj4WgDibEWF4pvYnkVQBpKBKeU+7zCJoLcc=
