@@ -31,6 +31,7 @@ type ExploreServiceCommand struct {
 	JsonDecoder         *json.Decoder                     `kong:"-"`
 	ExploreTimeout      time.Duration                     `short:"x" default:"3s"`
 	DisableExploreStage bool                              `short:"e"`
+	DisableHTTPPlugins  bool                              `short:"w"`
 	ExfiltrateStage     bool                              `short:"x"`
 	Option              map[string]string                 `short:"o"`
 	Debug               bool
@@ -75,7 +76,7 @@ func (cmd *ExploreServiceCommand) Run() error {
 				// Run exfiltrate stage, dump parts or all data to filesystem
 				cmd.RunPlugin(&event, cmd.ExfiltratePlugins)
 			}
-			if event.HasTransport("http") {
+			if event.HasTransport("http") && !cmd.DisableHTTPPlugins {
 				cmd.RunWebPlugin(&event, cmd.HttpPlugins)
 			}
 			event.UpdateFingerprint()
