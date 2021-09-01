@@ -1,0 +1,25 @@
+{
+  "plugins": [
+    "CouchDbOpenPlugin",
+    "ElasticSearchExplorePlugin",
+    "ElasticSearchOpenPlugin",
+    "MongoSchemaPlugin",
+    "MongoOpenPlugin",
+    "SSHOpenPlugin",
+    "DotDsStoreOpenPlugin",
+    "NucleiPlugin",
+    "MysqlOpenPlugin",
+    "MysqlExplorePlugin",
+    "RedisOpenPlugin",
+    "KafkaOpenPlugin",
+    "ApacheStatusHttpPlugin",
+    "ConfigJsonHttp",
+    "DotEnvConfigPlugin",
+    "GitConfigPlugin",
+    "IdxConfigPlugin",
+    "LaravelTelescopeHttpPlugin",
+    "PhpInfoHttpPlugin",
+    "FirebaseHttpPlugin",
+    "WpUserEnumHttp"
+  ]
+}

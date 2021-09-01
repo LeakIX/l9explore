@@ -6,9 +6,6 @@ import (
 	"crypto/tls"
 	"encoding/json"
 	"fmt"
-	"github.com/LeakIX/l9format"
-	"github.com/PuerkitoBio/goquery"
-	"github.com/gboddin/goccm"
 	"io"
 	"io/ioutil"
 	"log"
@@ -17,6 +14,10 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/LeakIX/l9format"
+	"github.com/PuerkitoBio/goquery"
+	"github.com/gboddin/goccm"
 )
 
 type ExploreServiceCommand struct {
@@ -25,13 +26,14 @@ type ExploreServiceCommand struct {
 	OpenPlugins         []l9format.ServicePluginInterface `kong:"-"`
 	ExplorePlugins      []l9format.ServicePluginInterface `kong:"-"`
 	ExfiltratePlugins   []l9format.ServicePluginInterface `kong:"-"`
-	HttpPlugins         []l9format.WebPluginInterface              `kong:"-"`
+	HttpPlugins         []l9format.WebPluginInterface     `kong:"-"`
 	ThreadManager       *goccm.ConcurrencyManager         `kong:"-"`
 	JsonEncoder         *json.Encoder                     `kong:"-"`
 	JsonDecoder         *json.Decoder                     `kong:"-"`
 	ExploreTimeout      time.Duration                     `short:"x" default:"3s"`
 	DisableExploreStage bool                              `short:"e"`
 	DisableHTTPPlugins  bool                              `short:"w"`
+	PluginsConf         string                            `short:"p" default:"plugins.json"`
 	ExfiltrateStage     bool                              `short:"x"`
 	Option              map[string]string                 `short:"o"`
 	Debug               bool
@@ -39,7 +41,7 @@ type ExploreServiceCommand struct {
 }
 
 func (cmd *ExploreServiceCommand) Run() error {
-	LoadL9ExplorePlugins()
+	LoadL9ExplorePlugins(cmd.PluginsConf)
 	cmd.HttpRequests = make(map[string]l9format.WebPluginRequest)
 	if !cmd.Debug {
 		log.SetOutput(ioutil.Discard)
@@ -129,7 +131,7 @@ func (cmd *ExploreServiceCommand) GetHttpClient(ctx context.Context, ip string, 
 			},
 			TLSClientConfig:       &tls.Config{InsecureSkipVerify: true},
 			MaxConnsPerHost:       2,
-			DisableKeepAlives: true,
+			DisableKeepAlives:     true,
 			ResponseHeaderTimeout: 2 * time.Second,
 			ExpectContinueTimeout: 2 * time.Second,
 		},
@@ -142,10 +144,10 @@ func (cmd *ExploreServiceCommand) GetHttpClient(ctx context.Context, ip string, 
 
 func (cmd *ExploreServiceCommand) RunWebPlugin(event *l9format.L9Event, plugins []l9format.WebPluginInterface) {
 	// do each requests and verify responses
-	timeout := time.Duration(int64(cmd.ExploreTimeout)*int64(len(plugins)))
+	timeout := time.Duration(int64(cmd.ExploreTimeout) * int64(len(plugins)))
 	ctx, contextCancelFunc := context.WithTimeout(context.Background(), timeout)
 	defer contextCancelFunc()
-	httpClient := cmd.GetHttpClient(ctx, event.Ip,event.Port)
+	httpClient := cmd.GetHttpClient(ctx, event.Ip, event.Port)
 	defer httpClient.CloseIdleConnections()
 	if event.Host == "" {
 		event.Host = event.Ip
@@ -215,21 +217,21 @@ func (cmd *ExploreServiceCommand) LoadPlugins() error {
 		}
 	}
 	for _, webPlugin := range WebPlugins {
-			cmd.HttpPlugins = append(cmd.HttpPlugins, webPlugin)
-			majorVersion, minorVersion, patchVersion := webPlugin.GetVersion()
-			// Plugins can register requests, this ensure they only run once
-			for _, request := range webPlugin.GetRequests() {
-				log.Printf("Loaded request ID %x", request.GetHash())
-				// If this request already exists, append our tags
-				if pluginRequest, requestExists := cmd.HttpRequests[request.GetHash()] ; requestExists{
-					pluginRequest.AddTags(request.Tags)
-				} else {
-					cmd.HttpRequests[request.GetHash()] = request
-				}
+		cmd.HttpPlugins = append(cmd.HttpPlugins, webPlugin)
+		majorVersion, minorVersion, patchVersion := webPlugin.GetVersion()
+		// Plugins can register requests, this ensure they only run once
+		for _, request := range webPlugin.GetRequests() {
+			log.Printf("Loaded request ID %x", request.GetHash())
+			// If this request already exists, append our tags
+			if pluginRequest, requestExists := cmd.HttpRequests[request.GetHash()]; requestExists {
+				pluginRequest.AddTags(request.Tags)
+			} else {
+				cmd.HttpRequests[request.GetHash()] = request
 			}
-			log.Printf("Web Plugin %s %d.%d.%d loaded. Stage: %s",
-				webPlugin.GetName(), majorVersion, minorVersion, patchVersion, webPlugin.GetStage())
+		}
+		log.Printf("Web Plugin %s %d.%d.%d loaded. Stage: %s",
+			webPlugin.GetName(), majorVersion, minorVersion, patchVersion, webPlugin.GetStage())
 	}
-	log.Printf("loaded %d service plugins and %d web plugins (%d requests)", len(cmd.OpenPlugins) + len(cmd.ExplorePlugins) + len(cmd.ExfiltratePlugins), len(cmd.HttpPlugins), len(cmd.HttpRequests))
+	log.Printf("loaded %d service plugins and %d web plugins (%d requests)", len(cmd.OpenPlugins)+len(cmd.ExplorePlugins)+len(cmd.ExfiltratePlugins), len(cmd.HttpPlugins), len(cmd.HttpRequests))
 	return nil
 }
