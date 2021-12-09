@@ -4,6 +4,8 @@ github.com/LeakIX/IndexOfBrowser v0.1.0/go.mod h1:VHPdwGFIaDecI0h5T382sXKA0GngEO
 github.com/LeakIX/l9format v1.3.0-beta.2/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.3.0 h1:IrWuvYQ6ayEwf3oTTWG54D3oVfLApQDd0qyKdKK5mw8=
 github.com/LeakIX/l9format v1.3.0/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
+github.com/LeakIX/l9format v1.3.1 h1:IjkVAwzijtQGVar9py93IDGkW5pNiByPgK2xzupxwig=
+github.com/LeakIX/l9format v1.3.1/go.mod h1:ra1Z8Zxia6ucdVubZmtuKDOoSVHLxkpT1Sklqbzg+JU=
 github.com/LeakIX/l9plugins v1.3.2 h1:2zcHDaNCZC25qTsRHhUZ9BYMVK3Ay8ANLRinAJQOfk4=
 github.com/LeakIX/l9plugins v1.3.2/go.mod h1:aMDvS4DodiS0dTg1npVGismbf9er5NfdEMyMOha8Vvk=
 github.com/LeakIX/l9plugins v1.4.0-alpha1 h1:hGbzpjI57mpJ6KayWv1qYWs8SN1ggG/14Ea1cqcJcxk=
