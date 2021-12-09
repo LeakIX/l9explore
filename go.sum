@@ -1,11 +1,10 @@
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/LeakIX/IndexOfBrowser v0.1.0 h1:a4Ag35uwKGEYIkALBsxv5tAziqWfMsUKZhEw4R1fS3o=
 github.com/LeakIX/IndexOfBrowser v0.1.0/go.mod h1:VHPdwGFIaDecI0h5T382sXKA0GngEOOxdqqpIA7NQGY=
-github.com/LeakIX/l9format v1.3.0-beta.2/go.mod h1:eKQn32c5PgUM7806Un2v6WTSmJcdcixed+cRHsPEp0k=
 github.com/LeakIX/l9format v1.3.1 h1:IjkVAwzijtQGVar9py93IDGkW5pNiByPgK2xzupxwig=
 github.com/LeakIX/l9format v1.3.1/go.mod h1:ra1Z8Zxia6ucdVubZmtuKDOoSVHLxkpT1Sklqbzg+JU=
-github.com/LeakIX/l9plugins v1.4.3 h1:QdU7qg5w+dTbQqxZnqcMcgMKq+jYHV7zQGG5TdgUYYI=
-github.com/LeakIX/l9plugins v1.4.3/go.mod h1:2wstqiewV3EhGyp7w0x+zpDt+FNz7KZUq3WrI7j6gXw=
+github.com/LeakIX/l9plugins v1.4.4 h1:t0ZPktm/dCJkQ5z+PmUGutCa7AiczicimN9z2jueMDI=
+github.com/LeakIX/l9plugins v1.4.4/go.mod h1:dUAq0xaJXrrf2CNYFOUpC5Jn/BlFZmJVEz1HczQadgk=
 github.com/PuerkitoBio/goquery v1.6.1/go.mod h1:GsLWisAFVj4WgDibEWF4pvYnkVQBpKBKeU+7zCJoLcc=
 github.com/PuerkitoBio/goquery v1.8.0 h1:PJTF7AmFCFKk1N6V6jmKfrNH9tV5pNE6lZMkG0gta/U=
 github.com/PuerkitoBio/goquery v1.8.0/go.mod h1:ypIiRMtY7COPGk+I/YbZLbxsxn9g5ejnI2HSMtkjZvI=
@@ -49,8 +48,6 @@ github.com/fsnotify/fsnotify v1.4.9 h1:hsms1Qyu0jgnwNXIxa+/V/PDsU6CfLf6CNO8H7IWo
 github.com/fsnotify/fsnotify v1.4.9/go.mod h1:znqG4EE+3YCdAaPaxE2ZRY/06pZUdp0tY4IgpuI1SZQ=
 github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e h1:Cv/T9l4iNyi6keuiTPFIyxMSe4thWq1SAMd7TgHH17o=
 github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e/go.mod h1:ASva8kr1z1Gdw2T2wc+qz6ynTzEQ2knG+Buly4NOG+k=
-github.com/gboddin/l9-nuclei-plugin v0.1.0 h1:sFPgIa4G0JuwgGcJ+hj1R3FQB30USuwy3cXWWEtdbac=
-github.com/gboddin/l9-nuclei-plugin v0.1.0/go.mod h1:4BPqlPhm4m2fX116a2U6LSGZ95ZFVBPR4gDNfQPszF8=
 github.com/gehaxelt/ds_store v0.0.0-20210328175056-724e653cb546 h1:ilS1sOhC6fFgflrSzNf/0f1oAmD2WCVqCLc/0uRKrM0=
 github.com/gehaxelt/ds_store v0.0.0-20210328175056-724e653cb546/go.mod h1:iPCmcm7/tQJc127INL5EEEMamPzc6HaACoIh3yclQR4=
 github.com/go-redis/redis/v8 v8.11.0/go.mod h1:DLomh7y2e3ggQXQLd1YgmvIfecPJoFl7WU5SOQ/r06M=
@@ -222,7 +219,6 @@ github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d/go.mod h1:rHwXgn7Jul
 github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a h1:fZHgsYlfvtyqToslyjUt3VOPF4J7aK/3MPcK7xp3PDk=
 github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a/go.mod h1:ul22v+Nro/R083muKhosV54bj5niojjWZvU8xrevuH4=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
-gitlab.nobody.run/tbi/socksme v0.0.0-20201130024528-3ad02d4108c5/go.mod h1:2R0aT7bhH9+xiSielZpKS/TL4nTki1jxOCCgXN8BzV8=
 go.mongodb.org/mongo-driver v1.5.4/go.mod h1:gRXCHX4Jo7J0IJ1oDQyUxF7jfy19UfxniMS4xxMmUqw=
 go.mongodb.org/mongo-driver v1.7.3 h1:G4l/eYY9VrQAK/AUgkV0koQKzQnyddnWxrd/Etf0jIs=
 go.mongodb.org/mongo-driver v1.7.3/go.mod h1:NqaYOwnXWr5Pm7AOpO5QFxKJ503nbMse/R79oO62zWg=
@@ -250,7 +246,6 @@ golang.org/x/net v0.0.0-20201021035429-f5854403a974/go.mod h1:sp8m0HH+o8qH0wwXwY
 golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb/go.mod h1:sp8m0HH+o8qH0wwXwYZr8TS3Oi6o0r6Gce1SSxlDquU=
 golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
 golang.org/x/net v0.0.0-20210428140749-89ef3d95e781/go.mod h1:OJAsFXCWl8Ukc7SiCT/9KSuxbyM7479/AVlXFRxuMCk=
-golang.org/x/net v0.0.0-20210525063256-abc453219eb5/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
 golang.org/x/net v0.0.0-20210614182718-04defd469f4e/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
 golang.org/x/net v0.0.0-20210916014120-12bc252f5db8/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=
 golang.org/x/net v0.0.0-20210917221730-978cfadd31cf/go.mod h1:9nx3DQGgdP8bBQD5qxJ1jj9UTztislL4KSBs9R2vV5Y=

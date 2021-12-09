@@ -4,12 +4,11 @@ go 1.15
 
 require (
 	github.com/LeakIX/l9format v1.3.1
-	github.com/LeakIX/l9plugins v1.4.3
+	github.com/LeakIX/l9plugins v1.4.4
 	github.com/PuerkitoBio/goquery v1.8.0
 	github.com/Shopify/sarama v1.30.0 // indirect
 	github.com/alecthomas/kong v0.2.16
 	github.com/gboddin/goccm v0.0.0-20201205182630-c48e23986e1e
-	github.com/gboddin/l9-nuclei-plugin v0.1.0
 	github.com/go-redis/redis/v8 v8.11.4 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/joho/godotenv v1.4.0 // indirect
