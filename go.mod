@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/LeakIX/l9format v1.3.1
-	github.com/LeakIX/l9plugins v1.4.0
+	github.com/LeakIX/l9plugins v1.4.3
 	github.com/PuerkitoBio/goquery v1.8.0
 	github.com/Shopify/sarama v1.30.0 // indirect
 	github.com/alecthomas/kong v0.2.16
