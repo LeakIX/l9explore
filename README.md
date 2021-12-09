@@ -15,6 +15,34 @@ It is the last layer in the l9 tool suite.
 - Low memory/CPU footprint
 - Multistage (WIP)
 
+## Current plugins
+
+|Plugin|Protocols|Stage|Description|Author|
+|------|-----|---|---|---|
+|apachestatus_http|http|http|Checks for apache status pages|
+|configjson_http|http|http|Scans for valid `config.json` files|
+|dotenv_http|http|http|Scans for valid `.env` files|
+|gitconfig_http|http|http|Scans for valid `.git/config` files|
+|idxconfig_http|http|http|Scans for `/idx_config` directories with text files|
+|laraveltelescope_http|http|http|Scans for open Laravel debuggers|
+|phpinfo_http|http|http|Scans for valid `/phpinfo.php` files|
+|mysql_open|mysql|open|Connects and checks for default credentials|
+|mysql_explore|mysql|explore|Connects and list databases, sizes|
+|mongo_open|mongo|open|Connects and checks for open instance|
+|mongo_explore|mongo|explore|Connects and list collections, sizes|
+|elasticsearch_open|elasticsearch,kibana|open|Connects and checks for open instance|
+|elasticsearch_explore|elasticsearch,kibana|explore|Connects and list index, sizes|
+|redis_open|redis|open|Connects and checks for open instance|
+|kafka_open|kafka}|open|Connects and lists topics|
+|couchdb_open|couchdb|open|Connects and list databases, sizes|
+|firebase_http|firebase|open|Connects to firebase and checks for `.json` files|@phretor|
+|confluence_version|http|http|Scans confluence for vulnerable versions|@HaboubiAnis|
+|jira_plugin|http|http|Scans Jira for vulnerable versions|@HaboubiAnis|
+|apache_traversal|http|http|Scan servers for Apache LFI|@HaboubiAnis|
+|wpenum_http|http|http|Enumerates Wordpress users from CVE-2017-5487|
+|dotdsstore_open|http|open|Reads `.DS_Store` to enumerate files and directories on target|
+|metabase_http|http|open|Checks metabase instances for CVE-2021-41277|@kaizensecurity|
+
 ## Usage
 
 ### Explore services

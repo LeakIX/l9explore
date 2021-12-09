@@ -5,6 +5,7 @@ import (
 	// Import your plugins here
 	"github.com/LeakIX/l9plugins"
 	l9_nuclei_plugin "github.com/gboddin/l9-nuclei-plugin"
+	metabase_plugin "github.com/kaizensecurity/CVE-2021-41277"
 )
 
 var TcpPlugins []l9format.ServicePluginInterface
@@ -15,5 +16,6 @@ func LoadL9ExplorePlugins() {
 	WebPlugins = append(WebPlugins, l9plugins.GetWebPlugins()...)
 	// Add your plugins here
 	TcpPlugins = append(TcpPlugins, l9_nuclei_plugin.NucleiPlugin{})
+	WebPlugins = append(WebPlugins, metabase_plugin.MetabaseHttpPlugin{})
 }
 
