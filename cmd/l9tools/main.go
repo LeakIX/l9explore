@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/LeakIX/l9explore"
 	"github.com/alecthomas/kong"
-	_ "gitlab.nobody.run/tbi/core"
 )
 
 var App struct {
