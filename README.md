@@ -10,38 +10,40 @@ It is the last layer in the l9 tool suite.
 
 ## Features
 
-- Deep protocol exploration 
+- Deep protocol exploration
 - Plugin based system
 - Low memory/CPU footprint
 - Multistage (WIP)
 
 ## Current plugins
 
-|Plugin|Protocols|Stage|Description|Author|
-|------|-----|---|---|---|
-|apachestatus_http|http|http|Checks for apache status pages|
-|configjson_http|http|http|Scans for valid `config.json` files|
-|dotenv_http|http|http|Scans for valid `.env` files|
-|gitconfig_http|http|http|Scans for valid `.git/config` files|
-|idxconfig_http|http|http|Scans for `/idx_config` directories with text files|
-|laraveltelescope_http|http|http|Scans for open Laravel debuggers|
-|phpinfo_http|http|http|Scans for valid `/phpinfo.php` files|
-|mysql_open|mysql|open|Connects and checks for default credentials|
-|mysql_explore|mysql|explore|Connects and list databases, sizes|
-|mongo_open|mongo|open|Connects and checks for open instance|
-|mongo_explore|mongo|explore|Connects and list collections, sizes|
-|elasticsearch_open|elasticsearch,kibana|open|Connects and checks for open instance|
-|elasticsearch_explore|elasticsearch,kibana|explore|Connects and list index, sizes|
-|redis_open|redis|open|Connects and checks for open instance|
-|kafka_open|kafka}|open|Connects and lists topics|
-|couchdb_open|couchdb|open|Connects and list databases, sizes|
-|firebase_http|firebase|open|Connects to firebase and checks for `.json` files|@phretor|
-|confluence_version|http|http|Scans confluence for vulnerable versions|@HaboubiAnis|
-|jira_plugin|http|http|Scans Jira for vulnerable versions|@HaboubiAnis|
-|apache_traversal|http|http|Scan servers for Apache LFI|@HaboubiAnis|
-|wpenum_http|http|http|Enumerates Wordpress users from CVE-2017-5487|
-|dotdsstore_open|http|open|Reads `.DS_Store` to enumerate files and directories on target|
-|metabase_http|http|open|Checks metabase instances for CVE-2021-41277|@kaizensecurity|
+| Plugin                | Protocols            | Stage        | Description                                                      | Author               |
+| --------------------- | -------------------- | ------------ | ---------------------------------------------------------------- | -------------------- |
+| apachestatus_http     | http                 | http         | Checks for apache status pages                                   |                      |
+| configjson_http       | http                 | http         | Scans for valid `config.json` files                              |                      |
+| dotenv_http           | http                 | http         | Scans for valid `.env` files                                     |                      |
+| gitconfig_http        | http                 | http         | Scans for valid `.git/config` files                              |                      |
+| idxconfig_http        | http                 | http         | Scans for `/idx_config` directories with text files              |                      |
+| laraveltelescope_http | http                 | http         | Scans for open Laravel debuggers                                 |                      |
+| phpinfo_http          | http                 | http         | Scans for valid `/phpinfo.php` files                             |                      |
+| mysql_open            | mysql                | open         | Connects and checks for default credentials                      |                      |
+| mysql_explore         | mysql                | explore      | Connects and list databases, sizes                               |                      |
+| mongo_open            | mongo                | open         | Connects and checks for open instance                            |                      |
+| mongo_explore         | mongo                | explore      | Connects and list collections, sizes                             |                      |
+| elasticsearch_open    | elasticsearch,kibana | open         | Connects and checks for open instance                            |                      |
+| elasticsearch_explore | elasticsearch,kibana | explore      | Connects and list index, sizes                                   |                      |
+| redis_open            | redis                | open         | Connects and checks for open instance                            |                      |
+| kafka_open            | kafka}               | open         | Connects and lists topics                                        |                      |
+| couchdb_open          | couchdb              | open         | Connects and list databases, sizes                               |                      |
+| firebase_http         | firebase             | open         | Connects to firebase and checks for `.json` files                | @phretor             |
+| confluence_version    | http                 | http         | Scans confluence for vulnerable versions                         | @HaboubiAnis         |
+| jira_plugin           | http                 | http         | Scans Jira for vulnerable versions                               | @HaboubiAnis         |
+| apache_traversal      | http                 | http         | Scan servers for Apache LFI                                      | @HaboubiAnis         |
+| wpenum_http           | http                 | http         | Enumerates Wordpress users from CVE-2017-5487                    |                      |
+| dotdsstore_open       | http                 | open         | Reads `.DS_Store` to enumerate files and directories on target   |                      |
+| metabase_http         | http                 | open         | Checks metabase instances for CVE-2021-41277                     | @kaizensecurity      |
+| ftp_open              | ftp                  | open,explore | Checks if FTP server running and lists files in `anonymous` cwd. | github.com/kevdagoat |
+| memcached_open        | memcached            | open         | Connects, get version and total data stored.                     | github.com/kevdagoat |
 
 ## Usage
 
@@ -53,15 +55,15 @@ l9explore service -h
 
 Displays help for the list command.
 
-|Flag           |Description  |
-|-----------------------|-------------------------------------------------------|
-|--max-threads    | Maximum number of threads |
-|--only-leak      | Only display leaks and discard service events |
-|--explore-timeout | Timeout for each plugin |
-|--debug           | Displays developer information 
-|--disable-explore-stage|Disable explore stage plugins ( schema or file list/content)|
-|--exfiltrate-stage|Enable exfiltrate stage plugins ( dumps data to disk )|
-|--option| Use `-o 'redis_password=test;...'` to pass options to plugins, check each plugin's documentation for details| 
+| Flag                    | Description                                                                                                  |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------ |
+| --max-threads           | Maximum number of threads                                                                                    |
+| --only-leak             | Only display leaks and discard service events                                                                |
+| --explore-timeout       | Timeout for each plugin                                                                                      |
+| --debug                 | Displays developer information                                                                               |
+| --disable-explore-stage | Disable explore stage plugins ( schema or file list/content)                                                 |
+| --exfiltrate-stage      | Enable exfiltrate stage plugins ( dumps data to disk )                                                       |
+| --option                | Use `-o 'redis_password=test;...'` to pass options to plugins, check each plugin's documentation for details |
 
 ## Installation Instructions
 
@@ -87,10 +89,10 @@ This version has our [stock plugins](https://github.com/LeakIX/l9plugins) embedd
 
 l9explore speaks [l9format](https://github.com/LeakIX/l9format). It reads from stdin and outputs results on stdout.
 
-An usual pipeline would be to use it with [l9tcpid](https://github.com/LeakIX/l9tcpid) to identify the protocols to explore. 
+An usual pipeline would be to use it with [l9tcpid](https://github.com/LeakIX/l9tcpid) to identify the protocols to explore.
 
 ```sh
-$ ulimit -n 4096 
+$ ulimit -n 4096
 $ sudo ip4scout random -r 25000 -p 27017,9200|l9tcpid service --deep-http --max-threads=2048|tee services.json|l9explore service --explore-timeout 5s -t 2048 -l|tee leaks.json|l9filter transform -i l9 -o human
 2020/12/15 01:28:56 selected input : l9
 2020/12/15 01:28:56 selected output :  human
@@ -134,8 +136,6 @@ will :
   - And save that output to leaks.json
 - Use [l9filter](https://github.com/LeakIX/l9filter) to translate l9format in a comprehensible output
 
-
 ## Creating plugins
 
 Checkout the [l9plugin documentation](https://github.com/LeakIX/l9format/blob/master/l9plugin.md) on how to create your plugins.
-
