@@ -8,6 +8,26 @@ It can be used to expose leaks, misconfigurations and vulnerabilities on any IP 
 
 It is the last layer in the l9 tool suite.
 
+## Disclaimer & Responsible Use Agreement
+
+This software is an open-source security scanning tool provided "as is," without any warranty of any kind, express or implied. The developers and contributors of this project disclaim all liability and responsibility for any damage, direct or indirect, resulting from the use or misuse of this software.
+
+## Permitted Use & User Responsibility
+
+This tool is intended for security professionals, researchers, and system administrators to identify vulnerabilities and assess the security posture of systems that they own or have explicit, written permission to test.
+
+By downloading, installing, or using this software, you agree to the following terms:
+
+ - Authorization is Required: You will only use this tool to scan networks, applications, and systems for which you have obtained prior, explicit, and verifiable authorization from the system owner.
+
+ - Legal Compliance: You will use this software in strict compliance with all applicable local, state, national, and international laws and regulations.
+
+ - No Malicious Intent: You will not use this software for any malicious or illegal purposes, including but not limited to, unauthorized access, data exfiltration, disruption of services, or any other activity that could be considered a cybercrime.
+
+Unauthorized scanning of computer systems is illegal and can lead to severe civil and criminal penalties. The developers and contributors of this project do not condone any illegal use of this software and will not be held responsible for your actions.
+
+Your use of this software is your own responsibility and at your own risk. If you do not agree to these terms, you are not permitted to use this software.
+
 ## Features
 
 - Deep protocol exploration 
